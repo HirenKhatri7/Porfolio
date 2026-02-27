@@ -8,12 +8,127 @@
 .title-bar{
   user-select: none;
   font-family: 'JetBrains Mono', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 14px;
   padding: 10px 12px;
+  border-bottom: 1px solid #222;
 }
+.title-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot-red { background: #ff5f57; }
+.dot-yellow { background: #febc2e; }
+.dot-green { background: #28c840; }
+
 
 .root{
   background-color:var(--bg);
   height: 100vh;
+  height: 100dvh;
   width: 100vw;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
+.terminal-body{
+  overflow-y: auto;
+  flex: 1;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  
+}
+.prompt-line{
+  display: flex;
+  align-items: center;
+  white-space: pre;
+  flex-wrap: nowrap;
+  padding-left: 4px;
+}
+
+.prompt-user{
+  color:#22c55e;
+  font-weight: 600;
+}
+
+.prompt-sep{
+  color: #888;
+}
+
+.prompt-dir{
+  color: #60a5fa;
+  font-weight: 600;
+}
+.prompt-dollar {
+  color: #fff;
+  margin-left: 0;
+}
+
+.input-line{
+  position: relative;
+}
+
+.terminal-input{
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: 'JetBrains Mono',monospace;
+  font-size: 14px;
+  caret-color: var(--term-color);
+  flex: 1;
+  min-height: 0;
+  line-height: 1.6;
+}
+
+.terminal-input::selection{
+  background: rgba(0, 255, 65, 0.3);
+}
+
+.output{
+  white-space: pre;
+  color: var(--term-color);
+  opacity: 0.85;
+  min-height: 1.6em;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .title-bar {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .terminal-body {
+    font-size: 11px;
+    padding: 8px;
+    line-height: 1.5;
+  }
+
+  .terminal-input {
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+
+  .prompt-line {
+    padding-left: 2px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
