@@ -43,6 +43,29 @@ export const BANNER: OutputLine[] = [
   plain(""),
 ];
 
+export const BANNER_MOBILE: OutputLine[] = [
+  plain(""),
+  plain("██╗  ██╗██╗██████╗ ███████╗███╗   ██╗"),
+  plain("██║  ██║██║██╔══██╗██╔════╝████╗  ██║"),
+  plain("███████║██║██████╔╝█████╗  ██╔██╗ ██║"),
+  plain("██╔══██║██║██╔══██╗██╔══╝  ██║╚██╗██║"),
+  plain("██║  ██║██║██║  ██║███████╗██║ ╚████║"),
+  plain(""),
+  plain("██╗  ██╗██╗  ██╗ █████╗ ████████╗██████╗ ██╗"),
+  plain("██║ ██╔╝██║  ██║██╔══██╗╚══██╔══╝██╔══██╗██║"),
+  plain("█████╔╝ ███████║███████║   ██║   ██████╔╝██║"),
+  plain("██╔═██╗ ██╔══██║██╔══██║   ██║   ██╔══██╗██║"),
+  plain("██║  ██╗██║  ██║██║  ██║   ██║   ██║  ██║██║"),
+  plain(""),
+  plain(`${profile.role}`),
+  plain("React | Node.js | Spring Boot"),
+  plain("─────────────────────────────"),
+  plain("Welcome to my terminal portfolio!"),
+  plain("Type 'help' for commands."),
+  plain("─────────────────────────────"),
+  plain(""),
+];
+
 export function executeCommand(raw: string): CommandResult {
   const parts = raw.trim().split(" ");
   const cmd = parts[0].toLowerCase();

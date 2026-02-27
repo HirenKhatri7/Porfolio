@@ -130,5 +130,9 @@
     width: 10px;
     height: 10px;
   }
+  .output {
+    font-size: 10px;
+    line-height: 1.4;
+  }
 }
 

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
 import Typewriter from './components/TypeWriter';
-import { executeCommand, BANNER, COMMANDS, type OutputLine } from './commands/commands';
+import { executeCommand, BANNER, COMMANDS, type OutputLine, BANNER_MOBILE } from './commands/commands';
 
 interface HistoryEntry {
   command: string;
@@ -17,6 +17,15 @@ function App() {
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const terminalRef = useRef<HTMLDivElement>(null);
   const [bannerDone, setBannerDone] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 600);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  const activeBanner = isMobile ? BANNER_MOBILE : BANNER;
+
 
   const handleCommand = (raw: string) => {
     const cmd = raw.trim().toLowerCase();
@@ -93,7 +102,7 @@ function App() {
 
   const handleTerminalClick = (e: React.MouseEvent) => {
     const target = e.target as HTMLElement;
-
+    if(isMobile) return;
     if (target.tagName === "A") {
       setTimeout(() => {
         if (!isTyping) inputRef.current?.focus();
@@ -121,7 +130,7 @@ function App() {
         <div className='mb-2 output pl-0.5'>
           {bannerDone ? (
             <span className="whitespace-pre-wrap">
-              {BANNER.map((line, i) => (
+              {activeBanner.map((line, i) => (
                 <span key={i}>{line.text + "\n"}</span>
               ))}
             </span>
@@ -132,7 +141,7 @@ function App() {
               onComplete={() => {
                 setBannerDone(true);
                 setIsTyping(false);
-                inputRef.current?.focus();
+                if (!isMobile) inputRef.current?.focus();
               }}
               onUpdate={scrollToBottom}
             />
@@ -181,7 +190,7 @@ function App() {
             type='text'
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            autoFocus
+            autoFocus={!isMobile}
             onKeyDown={onKeyDown}
           />
         </div>}
