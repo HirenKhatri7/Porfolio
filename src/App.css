@@ -1,0 +1,19 @@
+:root {
+  --term-color: #00ff41;
+  --bg: #0d0d0d;
+  --title-bg: #1a1a1a;
+  --status-bg: #111111;
+  --link-color: #60a5fa;
+}
+.title-bar{
+  user-select: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  padding: 10px 12px;
+}
+
+.root{
+  background-color:var(--bg);
+  height: 100vh;
+  width: 100vw;
+}
