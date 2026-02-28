@@ -70,7 +70,7 @@ function App() {
       }
       const newIdx = cmdIndex - 1;
       setCmdIndex(newIdx);
-      setInputValue(cmdHistory[cmdIndex]);
+      setInputValue(cmdHistory[newIdx]);
     }
     if (e.key === "Tab") {
       e.preventDefault();
@@ -136,7 +136,7 @@ function App() {
             </span>
           ) : (
             <Typewriter
-              lines={BANNER}
+              lines={activeBanner}
               speed={10}
               onComplete={() => {
                 setBannerDone(true);
@@ -162,7 +162,7 @@ function App() {
               {i === history.length - 1 && isTyping ? (
                 <Typewriter
                   lines={entry.output}
-                  speed={0}
+                  speed={10}
                   onComplete={() => {
                     setIsTyping(false);
                   }}

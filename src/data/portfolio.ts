@@ -12,7 +12,7 @@ export const profile = {
 
 export const socials = {
   github: { label: "GitHub", url: "https://github.com/HirenKhatri7", handle: "@HirenKhatri7" },
-  linkedin: { label: "LinkedIn", url: "www.linkedin.com/in/hiren-khatri-9a079a2a4", handle: "hirenkhatri" },
+  linkedin: { label: "LinkedIn", url: "https://www.linkedin.com/in/hiren-khatri-9a079a2a4", handle: "hirenkhatri" },
   medium: { label: "Medium", url: "https://medium.com/@hirenkhatri83", handle: "@hirenkhatri83" },
 };
 

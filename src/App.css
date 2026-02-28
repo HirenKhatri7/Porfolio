@@ -119,7 +119,7 @@
   }
 
   .terminal-input {
-    font-size: 16px; /* prevents iOS zoom on focus */
+    font-size: 11px; /* prevents iOS zoom on focus */
   }
 
   .prompt-line {

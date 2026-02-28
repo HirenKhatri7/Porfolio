@@ -22,7 +22,7 @@ const plain = (text: string): OutputLine => ({ text, isHTML: false });
 export const COMMANDS = [
   "help", "about", "skills", "projects", "experience",
   "education", "contact", "socials",
-  "clear", "history", "whoami", "date", "echo", "banner",
+  "clear", "whoami", "date", "echo", "banner",
   "neofetch", "sudo", "ls", "cat", "cd", "pwd", "exit",
 ];
 
@@ -180,13 +180,13 @@ export function executeCommand(raw: string): CommandResult {
         output: [
           plain(`${profile.name}@portfolio`),
           plain("─────────────────────"),
-          plain(`Role:      ${profile.role}`),
-          plain(`Location:  ${profile.location}`),
-          plain(`Languages: ${skills.languages.slice(0, 4).join(", ")}`),
-          plain(`Frameworks:${skills.frameworks.slice(0, 3).join(", ")}`),
-          plain(`Tools:     ${skills.tools.slice(0, 3).join(", ")}`),
-          plain(`Shell:     terminal-portfolio v1.0.0`),
-          plain(`Uptime:    since ${new Date().getFullYear()}`),
+          plain(`Role:       ${profile.role}`),
+          plain(`Location:   ${profile.location}`),
+          plain(`Languages:  ${skills.languages.slice(0, 4).join(", ")}`),
+          plain(`Frameworks: ${skills.frameworks.slice(0, 3).join(", ")}`),
+          plain(`Tools:      ${skills.tools.slice(0, 3).join(", ")}`),
+          plain(`Shell:      terminal-portfolio v1.0.0`),
+          plain(`Uptime:     since ${new Date().getFullYear()}`),
         ],
       };
 
